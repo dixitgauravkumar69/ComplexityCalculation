@@ -120,6 +120,17 @@ def analyze_cpp(code):
     return f"O({base} log n)" if has_log else f"O({base})"
 
 # ------------------- Flask Routes -------------------
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "status": "Online",
+        "message": "Code Complexity Analyzer API is running!",
+        "endpoints": {
+            "analyze": "/analyze [POST]"
+        }
+    })
+
+
 @app.route('/analyze', methods=['POST'])
 def analyze_code():
     data = request.get_json()
