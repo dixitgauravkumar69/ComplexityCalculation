@@ -2,8 +2,11 @@ from flask import Flask, request, jsonify
 import ast
 import javalang
 import re
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)   # Allowed CORS for all .....
+
 
 # ------------------- Python Analyzer -------------------
 class PythonComplexityVisitor(ast.NodeVisitor):
